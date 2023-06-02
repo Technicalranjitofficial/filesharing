@@ -32,7 +32,7 @@ const host = "https://zoneshare.netlify.app";
         },
       });
 
-      // console.log(response.data);
+      console.log(response.data);
 
       setlink(response.data.filepath);
       // Reset the form
