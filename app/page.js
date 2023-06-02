@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 const page = () => {
 
 
-  // const [link,setlink] = useState("empty");
+  const [link,setlink] = useState("empty");
 
   const [file,setFile] = useState();
   const handleOnSubmit=async(e)=>{
@@ -20,20 +20,21 @@ const page = () => {
 
 
     
-
+const host = "http://localhost:3000";
+// const host = "https://zoneshare.netlify.app";
 
  
     try {
-      const response = await axios.post('https://zoneshare.netlify.app/api/hello', formData, {
+      const response = await axios.post(`${host}/api/hello`, formData, {
         onUploadProgress: (progressEvent) => {
           const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
           console.log(progress)
         },
       });
 
-      console.log(response.data);
+      // console.log(response.data);
 
-      // setlink(response.data.filepath);
+      setlink(response.data.filepath);
       // Reset the form
       setSelectedFile(null);
       setUploadProgress(0);
@@ -54,7 +55,7 @@ const page = () => {
    </form>
 
 
-  {/* <a href={link}>{link}</a> */}
+  <a href={link}>{link}</a>
    
    </>
   )

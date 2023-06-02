@@ -8,7 +8,7 @@ async function handler(req, res) {
 	console.log("hi");
   
 const data = await new Promise(function (resolve, reject) {
-  const form = new formidable.IncomingForm({ keepExtensions: true,uploadDir:"uploads/",filename: (name, ext, part, form) => {
+  const form = new formidable.IncomingForm({ keepExtensions: true,uploadDir:"./public/uploads/",filename: (name, ext, part, form) => {
 	return part.originalFilename.replace(" ",""); // Will be joined with options.uploadDir.
 } });
 
@@ -30,7 +30,10 @@ const data = await new Promise(function (resolve, reject) {
 // console.log(`/upload/${data['files'].file.newFilename}`);
 // res.json({filepath:`/upload/${data['files'].file.newFilename}`});
 
-res.json({filepath:data['files'].file.filepath});
+const host = "http://localhost:3000";
+// const host = "https://zoneshare.netlify.app";
+
+res.json({filepath:`${host}/uploads/${data['files'].file.newFilename}`});
 
 }
 
