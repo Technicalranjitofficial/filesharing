@@ -20,8 +20,8 @@ const page = () => {
 
 
     
-const host = "http://localhost:3000";
-// const host = "https://zoneshare.netlify.app";
+// const host = "http://localhost:3000";
+const host = "https://zoneshare.netlify.app";
 
  
     try {
