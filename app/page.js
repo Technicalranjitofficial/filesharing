@@ -24,7 +24,7 @@ const page = () => {
 
  
     try {
-      const response = await axios.post('http://localhost:3000/api/hello', formData, {
+      const response = await axios.post('https://zoneshare.netlify.app/api/hello', formData, {
         onUploadProgress: (progressEvent) => {
           const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
           console.log(progress)
