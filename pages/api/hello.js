@@ -33,7 +33,8 @@ const data = await new Promise(function (resolve, reject) {
 // const host = "http://localhost:3000";
 const host = "https://zoneshare.netlify.app";
 
-res.json({filepath:`${host}/uploads/${data['files'].file.newFilename}`});
+
+res.json({f:data['files'].file.filepath,filepath:`${host}/uploads/${data['files'].file.newFilename}`});
 
 }
 
